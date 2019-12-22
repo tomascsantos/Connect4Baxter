@@ -1,0 +1,17 @@
+<launch>
+
+
+    <node name="enable_robot" pkg="baxter_tools" type="enable_robot.py" args="-e"></node>
+    <node name="action_server" pkg="baxter_interface" type="joint_trajectory_action_server.py"></node>
+    <include file="$(find baxter_moveit_config)/launch/demo_baxter.launch">
+        <arg name="right_electric_gripper" value="true"/>
+        <arg name="left_electric_gripper" value="false"/>
+    </include>
+
+    <include file="$(find game_master)/launch/ar_track.launch">
+    </include>
+
+    <node name="main" pkg="game_master" type="game_master.py" output="screen"></node>
+
+
+</launch>

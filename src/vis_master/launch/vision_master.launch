@@ -1,0 +1,9 @@
+<launch>
+
+    <include file="$(find vis_master)/launch/ar_track.launch">
+    </include>
+
+    <node name="vis_master" pkg="vis_master" type="vision_master.py">
+    </node>
+
+</launch>

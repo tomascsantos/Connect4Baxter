@@ -1,0 +1,15 @@
+<launch>
+
+    <node name="enable_robot" pkg="baxter_tools" type="enable_robot.py" args="-e"></node>
+    <node name="action_server" pkg="baxter_interface" type="joint_trajectory_action_server.py"></node>
+    <include file="$(find baxter_moveit_config)/launch/demo_baxter.launch">
+        <arg name="right_electric_gripper" value="true"/>
+        <arg name="left_electric_gripper" value="false"/>
+    </include>
+
+    <node name="move_master_main" pkg="move_master" type="move_control_master.py"></node>
+
+
+
+
+</launch>
